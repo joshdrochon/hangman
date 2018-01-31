@@ -1,14 +1,40 @@
 //business logic
 
 //constructors
-function User(name, score){
+function User(name, score, guess){
   this.name = name;
   this.score = score;
+  this.guess = guess;
 }
 
 
 
+
+
 //functions
+
+
+
+
+
+let guessChecker = function(){
+
+  var userGuess = prompt("Enter a letter");
+
+  let randomWord = "graveyard"; //hard-coded test case
+
+
+  for(i=0;i<randomWord.length; i++){
+    //console.log(randomWord[i]);
+    if(randomword[i] === userGuess){
+      console.log("You guessed correctly!");
+    }else{
+      console.log("You guessed wrong!")
+    }
+  }
+}// guessChecker
+
+
 
 
 
@@ -17,13 +43,22 @@ var words = ["Superman", "Spiderman", "Nathan Drake",
              "Hellboy", "Luke Skywalker", "Ben Kenobi",
              "Darth Vader", "Spartan 117"];
 
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+var alpha = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
                 "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 for(i = 0; i<words.length; i++){
 
   var randomIndex = Math.floor(Math.random() * words.length);
   console.log(words[randomIndex]);
+}
+
+let counter = 5;
+
+
+if(user guess correct letter){
+  display in field
+}else{
+  counter --;
 }
 
 
@@ -45,7 +80,7 @@ if(userName){ //the very existence of the 'defined' variable evaluates to true
 let newUser = (userName, score);
 
 
-var userGuess = prompt("enter a letter of the alphabet");
+
 
 
 
