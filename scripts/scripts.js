@@ -3,14 +3,9 @@ $(document).ready(function(){
   $("#form1").submit(function(event){
   event.preventDefault();
 
-  var userName = $("#username").val();
-
-  var userGuess = $("#user-guess").val();
-
-  var userScore = 5;
-
-
-
+  let userName = $("#username").val();
+  let userGuess = $("#user-guess").val();
+  let userScore = 5;
 
 
 
@@ -24,12 +19,12 @@ $(document).ready(function(){
     this.score = score;
   }
 
-  var newUser = new User(userName, userGuess, userScore);
+  let newUser = new User(userName, userGuess, userScore);
 
-  var words = ["Superman", "Spiderman", "Nathan Drake",
-               "Steve Jobs", "Batman", "Iron Man", "Antman",
-               "Hellboy", "Luke Skywalker", "Ben Kenobi",
-               "Darth Vader", "Spartan 117"];
+  let words = ["Superman", "Spiderman", "Cinderella",
+               "Otacon", "Batman", "Tintin", "Antman",
+               "Hellboy", "Yoda", "Chewbacca",
+               "Gandalf", "Cortana"];
 
   var randomNum = Math.floor(Math.random() * words.length);
 
@@ -39,17 +34,24 @@ $(document).ready(function(){
 
   let guessChecker = function(){
 
-    if(newUser.guess === randomWord[0] || randomWord[0].toLowerCase()){
-      newUser.guess = newUser.guess.toUpperCase();
-      console.log(newUser.guess);
+    let x = newUser.guess;
+
+    if(x.toUpperCase() === randomWord[0]){
+      x = x.toUpperCase();
+      console.log(g);
     }
 
     for(i=0;i<randomWord.length; i++){
-      //console.log(randomWord[i]);
-    if(randomWord[i] === userGuess){
-      console.log(userGuess);
-    	}continue;
-  	}
+      if(randomWord[i] === x){
+        console.log(userGuess);
+        break;
+      }else{
+        newUser.score --
+        console.log(newUser.score);
+        break;
+      }
+    }
+
   }
 
   //end business logic
