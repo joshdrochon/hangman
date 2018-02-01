@@ -21,10 +21,10 @@ $(document).ready(function(){
 
   let newUser = new User(userName, userGuess, userScore);
 
-  let words = ["Superman", "Spiderman", "Cinderella",
-               "Otacon", "Batman", "Tintin", "Antman",
-               "Hellboy", "Yoda", "Chewbacca",
-               "Gandalf", "Cortana"];
+  let words = ["Superman", "Spiderman", "Sinderella",
+               "Stacon", "Satman", "Sintin", "Saruman",
+               "Sellboy", "Soda", "Shewbacca",
+               "Sandalf", "Sortana"];
 
   var randomNum = Math.floor(Math.random() * words.length);
 
@@ -34,16 +34,16 @@ $(document).ready(function(){
 
   let guessChecker = function(){
 
-    let x = newUser.guess;
+    let nUG = newUser.guess;
 
-    if(x.toUpperCase() === randomWord[0]){
-      x = x.toUpperCase();
-      console.log(g);
+    if(nUG.toUpperCase() === randomWord[0]){
+      nUG = nUG.toUpperCase();
+      console.log(nUG);
     }
 
     for(i=0;i<randomWord.length; i++){
-      if(randomWord[i] === x){
-        console.log(userGuess);
+      if(randomWord[i] === nUG){
+        console.log(nUG);
         break;
       }else{
         newUser.score --
@@ -62,7 +62,9 @@ $(document).ready(function(){
 
   console.log(newUser);
 
-  guessChecker();
+  while(newUser.score != 0){ //may not work
+    guessChecker();
+  }
 
   });
 });
