@@ -1,79 +1,75 @@
-//business logic
-
-//constructors
-function User(name, score, guess){
-  this.name = name;
-  this.score = score;
-  this.userGuess = guess;
-}
-
-//functions
-
-var words = ["Superman", "Spiderman", "Nathan Drake",
-             "Steve Jobs", "Batman", "Iron Man", "Antman",
-             "Hellboy", "Luke Skywalker", "Ben Kenobi",
-             "Darth Vader", "Spartan 117"];
-
-var randomNum = Math.floor(Math.random() * words.length);
-
-var randomWord = words[randomNum];
-
-//console.log(randomWord);
-
-if(this.userGuess === randomWord[0] || randomWord[0].toLowerCase()){
-  this.userGuess = this.userGuess.toUpperCase();
-  console.log(this.userGuess);
-}
-
-let guessChecker = function(){
-
-  for(i=0;i<randomWord.length; i++){
-    //console.log(randomWord[i]);
-  if(randomWord[i] === userGuess){
-    console.log(userGuess);
-  	}continue;
-	}
-}
-
-if(userGuess === randomWord[0]){
-  randomWord = randomWord.toUpperCase();
-}
-
-// for(i = 0; i<words.length; i++){
-//
-//   var randomIndex = Math.floor(Math.random() * words.length);
-//   console.log(words[randomIndex]);
-// }
-//
-// let counter = 5;
-//
-//
-// if(user guess correct letter){
-//   display in field
-// }else{
-//   counter --;
-// }
-
-guessChecker();
-
-
-
-
 //ui logic
+$(document).ready(function(){
+  $("#form1").submit(function(event){
+  event.preventDefault();
 
-var userName = $("#input-name").val();
+  var userName = $("#username").val();
 
-if(userName === "" || userName === null){
-  prompt("Do I look like a mind reader? Please enter your name you.");
-}
+  var userGuess = $("#user-guess").val();
 
-if(userName){ //the very existence of the 'defined' variable evaluates to true
-  alert("Thanks, " + userName);
-}
+  var userScore = 5;
 
-let newUser = (userName, score);
 
-let userGuess = $("#user-guess").val();
+
+
+
+
+
+
+  //business logic
+
+  function User(name, guess, score){
+    this.name = name;
+    this.guess = guess;
+    this.score = score;
+  }
+
+  var newUser = new User(userName, userGuess, userScore);
+
+  var words = ["Superman", "Spiderman", "Nathan Drake",
+               "Steve Jobs", "Batman", "Iron Man", "Antman",
+               "Hellboy", "Luke Skywalker", "Ben Kenobi",
+               "Darth Vader", "Spartan 117"];
+
+  var randomNum = Math.floor(Math.random() * words.length);
+
+  var randomWord = words[randomNum];
+
+  console.log(randomWord);
+
+  let guessChecker = function(){
+
+    if(newUser.guess === randomWord[0] || randomWord[0].toLowerCase()){
+      newUser.guess = newUser.guess.toUpperCase();
+      console.log(newUser.guess);
+    }
+
+    for(i=0;i<randomWord.length; i++){
+      //console.log(randomWord[i]);
+    if(randomWord[i] === userGuess){
+      console.log(userGuess);
+    	}continue;
+  	}
+  }
+
+  //end business logic
+
+
+
+
+
+  console.log(newUser);
+
+  guessChecker();
+
+  });
+});
+
+
+
+
+
+
 
 
 
@@ -100,6 +96,3 @@ Working version:
 7) - the user will need the ablity to quit and any moment they want
 
 */
-
-/* var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-             "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]; */
