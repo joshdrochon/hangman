@@ -4,7 +4,7 @@
 function User(name, score, guess){
   this.name = name;
   this.score = score;
-  this.guess = guess;
+  this.userGuess = guess;
 }
 
 //functions
@@ -20,11 +20,9 @@ var randomWord = words[randomNum];
 
 //console.log(randomWord);
 
-let userGuess = prompt("Enter a letter!");
-
-if(userGuess === randomWord[0] || randomWord[0].toLowerCase()){
-  userGuess = userGuess.toUpperCase();
-  console.log(userGuess);
+if(this.userGuess === randomWord[0] || randomWord[0].toLowerCase()){
+  this.userGuess = this.userGuess.toUpperCase();
+  console.log(this.userGuess);
 }
 
 let guessChecker = function(){
